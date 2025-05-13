@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int main(){
     //Declaraciones
@@ -8,9 +9,9 @@ int main(){
 
     int colocador = 0;
     int mov = 1;
-    int delimitador = 8;
 
-    int true = 1;
+
+    bool validar = true;
 
     //inicializar la matriz
     for (int i = 0; i < 8; i++)
@@ -28,10 +29,10 @@ int main(){
         for (int j = 0; j <= 7; j++)
         {
             //nos saltamos los valores que ya colocamos 
-            if(true ==1){
+            if(validar == true){
                 abc += mov;
                 j += mov;
-                true = 0;
+                validar = false;
             }
             
             //recoleccion de datos
@@ -42,8 +43,7 @@ int main(){
             abc++;
     
         }
-        delimitador--;
-        true = 1;
+        validar = true;
         nodos++;
         abc = 97;
         mov++;
