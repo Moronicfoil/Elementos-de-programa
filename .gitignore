@@ -1,0 +1,14 @@
+# Archivos objeto generados por el compilador
+*.o
+
+# Archivo ejecutable específico generado por tu compilación
+MatrizAdyacente
+
+# Otros archivos temporales o de construcción (pueden variar según el entorno)
+*.d
+*.obj
+*.elf
+
+# Directorios donde se suelen guardar los ejecutables o objetos (si los usas)
+bin/
+obj/
