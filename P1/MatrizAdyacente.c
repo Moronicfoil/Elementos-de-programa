@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+#define RENGLONES 8
+#define COLUMNAS 8
+
 int main(){
     //Declaraciones
-    int matriz[8][8];
+    int matriz[RENGLONES][COLUMNAS];
     char nodos = 97;
     char abc = 97;
 
@@ -24,9 +27,9 @@ int main(){
     }
     
     //toma de valores del usuario
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < RENGLONES -1; i++)
     {
-        for (int j = 0; j <= 7; j++)
+        for (int j = 0; j < COLUMNAS; j++)
         {
             //nos saltamos los valores que ya colocamos 
             if(validar == true){
@@ -60,10 +63,8 @@ int main(){
         printf("\n");
         
     }
+
+    return 0;
     
 
 }
-        
-        
-
-    
