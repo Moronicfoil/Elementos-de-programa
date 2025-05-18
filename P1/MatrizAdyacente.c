@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdbool.h>
+
 
 #define RENGLONES 8
 #define COLUMNAS 8
@@ -12,9 +12,6 @@ int main(){
 
     int colocador = 0;
     int mov = 1;
-
-
-    bool validar = true;
 
     //inicializar la matriz
     for (int i = 0; i < 8; i++)
@@ -29,15 +26,9 @@ int main(){
     //toma de valores del usuario
     for (int i = 0; i < RENGLONES -1; i++)
     {
-        for (int j = 0; j < COLUMNAS; j++)
+        abc += mov;
+        for (int j = 1 + i; j < COLUMNAS; j++)
         {
-            //nos saltamos los valores que ya colocamos 
-            if(validar == true){
-                abc += mov;
-                j += mov;
-                validar = false;
-            }
-            
             //recoleccion de datos
             printf("Escriba los valores ponderados para %c, matriz de adyacencia [%c][%c]: \n", nodos, nodos, abc);
             scanf("%d", &colocador);
@@ -46,7 +37,6 @@ int main(){
             abc++;
     
         }
-        validar = true;
         nodos++;
         abc = 97;
         mov++;
