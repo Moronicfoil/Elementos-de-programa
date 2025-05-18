@@ -29,8 +29,6 @@ int main()
     //     printf("\n");
     // }
 
-    
-
     return 0;
 }
 // funcion para rellenar la matriz
@@ -83,36 +81,46 @@ void desicion_formula_conteo(int total, int matri[total][total])
     printf("Seleccione el metodo a utilizar: \n");
     printf("1. Fuerza bruta.\n");
     printf("2. Formula de Gauss\n");
+    printf("si desea terminar, presione 3. \n");
 
     int total_saludos = 0;
     int selec;
-    validen_entero(&selec);
+    
 
-    switch (selec)
+    int salir = 0;
+    while (salir != 1)
     {
-    case 1:
-        for (int i = 0; i < total; i++)
+        validen_entero(&selec);
+        switch (selec)
         {
-            for (int j = i + 1; j < total; j++)
+        case 1:
+            for (int i = 0; i < total; i++)
             {
-                if (matri[i][j] == 1)
+                for (int j = i + 1; j < total; j++)
                 {
-                    total_saludos++;
+                    if (matri[i][j] == 1)
+                    {
+                        total_saludos++;
+                    }
                 }
             }
+
+            printf("El total de saludos es: %d\n", total_saludos);
+
+            break;
+
+        case 2:
+            total_saludos = total * (total - 1) / 2;
+            printf("El total de saludos es: %d\n", total_saludos);
+            break;
+
+        case 3:
+            salir = 1;
+            break;
+
+        default:
+            printf("No Seleciono nada");
+            break;
         }
-        
-        printf("El total de saludos es: %d\n", total_saludos);
-
-        break;
-
-    case 2:
-        total_saludos = total*(total-1)/2;
-        printf("El total de saludos es: %d\n", total_saludos);
-        break;
-
-    default:
-        printf("No Seleciono nada");
-        break;
     }
 }
