@@ -1,3 +1,5 @@
+/*Andres Emilio Ibarra Paz IECSA04 11172*/
+
 #include <stdio.h>
 
 #define NODOS 7

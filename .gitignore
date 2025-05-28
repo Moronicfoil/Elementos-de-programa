@@ -6,6 +6,8 @@ MatrizAdyacente
 handsh
 filecopying
 DFS
+BFS
+prim
 
 # Otros archivos temporales o de construcción (pueden variar según el entorno)
 *.d
