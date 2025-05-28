@@ -1,11 +1,14 @@
 #include <stdio.h>
 
-#define NODOS 7
+#define NODOS 4
 #define NOVISITADO -1
 #define VISITADO 1
+#define VISTO 2
+#define SIGUIENTE 3
 
 void setArray(int array[NODOS]);
-void DFS(int renglon, int matri[NODOS][NODOS], int array[NODOS]);
+void BFS(int renglon, int matri[NODOS][NODOS], int array[NODOS]);
+void recorridoCola(int array[NODOS]);
 
 //funciones para imprimir matriz y arreglo 
 void printMatriz(int matriz[NODOS][NODOS]);
@@ -15,34 +18,33 @@ int main(){
 
     //ingresamos la matriz adjayecente
     int matriz[NODOS][NODOS] = {
-
-    { 0, 1, 1, 0, 0, 0, 0 },
-    { 1, 0, 0, 1, 0, 0, 0 },
-    { 1, 0, 0, 0, 1, 1, 0 },
-    { 0, 1, 0, 0, 0, 0, 0 },
-    { 0, 0, 1, 0, 0, 0, 0 },
-    { 0, 0, 1, 0, 0, 0, 1 },
-    { 0, 0, 0, 0, 0, 1, 0 }  
+    //0  1  2  3
+    { 0, 1, 1, 0 }, // 0
+    { 1, 0, 0, 0 }, // 1
+    { 1, 0, 0, 1 }, // 2
+    { 0, 0, 1, 0 }  // 3
     };
 
     //creamos el arreglo para saber cual hemos visitado
     int vistados[NODOS];
     
+    
+
     //set up de visitados
     setArray(vistados);
 
     printMatriz(matriz);
     
-    for (int i = 0; i < NODOS; i++)
+    int cont = 0;
+    //realiza el movimiento entre nodos
+    while (cont < 1)
     {
-        if(vistados[i] == NOVISITADO){
-            printf("estoy entrando al nodo %d \n",i);
-            DFS(i, matriz, vistados);
-        }
+        BFS(cont, matriz, vistados);
+        cont++;
     }
     
+    
 }
-
 //set el arreglo a no visitados todos los nodos
 void setArray(int array[NODOS]){
     for (int i = 0; i < NODOS; i++)
@@ -52,7 +54,7 @@ void setArray(int array[NODOS]){
     
 }
 //realiza el algoritmo de DFS
-void DFS(int renglon, int matri[NODOS][NODOS], int array[NODOS]){
+void BFS(int renglon, int matri[NODOS][NODOS], int array[NODOS]){
     //marca el nodo como visitado e imprime el arreglo
     array[renglon] = VISITADO;
     printArray(array);
@@ -63,10 +65,12 @@ void DFS(int renglon, int matri[NODOS][NODOS], int array[NODOS]){
     {
         if((array[i] == NOVISITADO)&&(matri[renglon][i] == 1)){
            
-            DFS(i, matri, array);
+            array[i] = VISTO;
         }
     }
+    
     printf("salio del nodo %d \n", renglon);
+
     
 }
 
@@ -92,5 +96,17 @@ void printArray(int array[NODOS]){
         printf("%d ", array[i]);
     }
     printf("\n");
+    
+}
+
+void recorridoCola(int array[NODOS]){
+    for (int i = 0; i < NODOS; i++)
+    {
+        if (array[i] == VISTO)
+        {
+            array[i] = SIGUIENTE;
+        }
+        
+    }
     
 }

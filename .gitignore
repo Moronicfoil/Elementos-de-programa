@@ -5,6 +5,7 @@
 MatrizAdyacente
 handsh
 filecopying
+DFS
 
 # Otros archivos temporales o de construcción (pueden variar según el entorno)
 *.d
